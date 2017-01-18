@@ -1,0 +1,30 @@
+<ion-view view-title="{{lessons[0].team.name}} Lesson List">
+  <ion-content>
+    
+    <div class="row">
+        <div class="col col-20">&nbsp; &nbsp; &nbsp;<small>Hour</small></div>
+        <div class="col col-30"><small>Subject</small></div>
+        <div class="col col-10"><small>AB</small></div>
+        <div class="col col-10"><small>LA</small></div>
+        <div class="col col-10"><small>MA</small></div>
+        <div class="col col-10"><small>BH</small></div>
+        <div class="col col-10"><small>SR</small></div>
+        <div class="col col-10">&nbsp;</div>
+    </div>
+    
+    <ion-list>
+      <ion-item ng-repeat="lesson in lessons | orderBy: '-order'">
+          <div class="row">
+            <div class="col col-20"><small>{{lesson.hour}}</small></div>
+            <div class="col col-30"><small>{{lesson.subject.name}}</small></div>
+            <div class="col col-10"><small>{{lesson.sums.AB}}</small></div>
+            <div class="col col-10"><small>{{lesson.sums.LA}}</small></div>
+            <div class="col col-10"><small>{{lesson.sums.MA}}</small></div>
+            <div class="col col-10"><small>{{lesson.sums.BH}}</small></div>
+            <div class="col col-10"><small>{{lesson.sums.SR}}</small></div>
+            <div class="col col-10"><a href="#/app/{{lesson.team.name}}/single_lesson/{{lesson._id}}" ><i class="ion-android-open" style="color: #1caf9a"></i></a></div>
+          </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

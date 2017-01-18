@@ -1,0 +1,65 @@
+<ion-view view-title="{{student.name}} Dashboard">
+    <div class="tabs">
+      <a class="tab-item" ng-class="{active: totals}" ng-click="toggleCards()">
+        Totals
+      </a>
+      <a class="tab-item" ng-class="{active: !totals}" ng-click="toggleCards()">
+        Reports
+      </a>
+    </div>
+    
+  <ion-content >
+     
+      
+    <div class="card" ng-show="totals">
+        <div class="item item-text-wrap">
+          <p style="color: #1caf9a"><strong><small>Totals by Subject</small></strong></p>
+        </div>
+      <div class="item item-text-wrap">
+        <div class="row">
+            <div class="col">&nbsp;</div>
+            <div class="col"><small>AB</small></div>
+            <div class="col"><small>LA</small></div>
+            <div class="col"><small>MA</small></div>
+            <div class="col"><small>BH</small></div>
+            <div class="col"><small>SR</small></div>
+        </div>
+        <div class="row" ng-repeat="subject in student.subjects">
+            <div class="col"><small>{{subject.subject.name}}</small></div>
+            <div class="col"><small>{{subject.reportSums.AB}}</small></div>
+            <div class="col"><small>{{subject.reportSums.LA}}</small></div>
+            <div class="col"><small>{{subject.reportSums.MA}}</small></div>
+            <div class="col"><small>{{subject.reportSums.BH}}</small></div>
+            <div class="col"><small>{{subject.reportSums.SR}}</small></div>
+        </div>
+        <div class="row">
+            <div class="col"><strong><small>total</small></strong></div>
+            <div class="col"><small>{{student.totalSums.AB}}</small></div>
+            <div class="col"><small>{{student.totalSums.LA}}</small></div>
+            <div class="col"><small>{{student.totalSums.MA}}</small></div>
+            <div class="col"><small>{{student.totalSums.BH}}</small></div>
+            <div class="col"><small>{{student.totalSums.SR}}</small></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card" ng-show="!totals">
+      <div class="item item-text-wrap">
+          <p style="color: #1caf9a"><strong><small>Report list</small></strong></p>
+      </div>
+      <div class="item item-text-wrap">
+          <div class="row">
+            <div class="col"><p><strong><small>Hour</small></strong></p></div>
+            <div class="col"><p><strong><small>Subject</small></strong></p></div>
+            <div class="col"><p><strong><small>type</small></strong></p></div>
+            <div class="col col-10">&nbsp;</div>
+        </div>
+        <div class="row" ng-repeat="report in student.reports | orderBy: 'createdAt'">
+            <div class="col"><small>{{report.hour}}</small></div>
+            <div class="col"><small>{{report.subject}}</small></div>
+            <div class="col"><small>{{report.type}}</small></div>
+            <div class="col col-10"><i class="ion-android-open" style="color: #1caf9a" ng-click="showReport(report)"></i></div>
+        </div>
+      </div>
+  </ion-content>
+</ion-view>

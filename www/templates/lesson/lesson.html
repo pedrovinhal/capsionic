@@ -1,0 +1,28 @@
+<ion-view view-title="{{lesson.subject.name}} Lesson">
+  <ion-content>
+    <div class="list">
+        <!--<li class="item" ng-repeat="attendance in lesson.attendances">-->
+            
+            <a class="item item-avatar" ng-repeat="attendance in lesson.attendances | orderBy: 'student.id.number'">
+              <img ng-src="{{attendance.student.id.foto | defaultUser: './../images/avatar.jpg'}}">
+              <div class="row">
+                  <div class="col">
+                      <h2>{{attendance.student.name}}</h2>
+                      <p>nº {{attendance.student.id.number}}</p>
+                  </div>
+                 <div class="col">
+                    <p> Present: 
+                      <i class="icon ion-checkmark-circled" style="color:green;" ng-show="attendance.present"></i>
+                      <i class="icon ion-close-circled" style="color:red;" ng-show="!attendance.present"></i>
+                    </p>
+                    <p>
+                      Late:
+                      <i class="icon ion-information-circled" style="color:orange;" ng-show="attendance.late"></i>
+                      <i class="icon ion-information-circled" style="color: light-gray;" ng-show="!attendance.late"></i>
+                     </p>
+                  </div>
+              </div>
+            </a>
+    </div>
+  </ion-content>
+</ion-view>

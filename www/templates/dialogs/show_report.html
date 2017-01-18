@@ -1,0 +1,29 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+      <h1 class="title">Report modal</h1>
+      <div class="buttons">
+            <button class="button button-clear button-dark"
+                    ng-click="closeReport()">Close
+            </button>
+        </div>
+    </ion-header-bar>
+        <ion-content>
+            <div class="card">
+              <div class="item item-text-wrap">
+                  <p style="color: #1caf9a"><strong><small>Report details</small></strong></p>
+              </div>
+              <div class="item item-text-wrap">
+                  <div class="row">
+                    <div class="col"><small><strong>Hour:</strong> {{report.hour}}</small></div>
+                    <div class="col"><small><strong>Subject:</strong> {{report.subject}}</small></div>
+                  </div>
+                  <div class="row">
+                      <div class="col"><small><strong>Student:</strong> {{report.student}}</small></div>
+                      <div class="col"><small><strong>Type:</strong> {{report.type}}</small></div>
+                  </div>
+                  <div class="row">
+                      <div class="col"><small><strong>Description:</strong> {{report.description}}</small></div>
+                  </div>
+              </div>
+        </ion-content>
+ </ion-modal-view>
